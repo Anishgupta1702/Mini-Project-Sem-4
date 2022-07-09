@@ -1,0 +1,10 @@
+from matplotlib import pyplot as plt
+x = list(map(int, input("Enter values on X-axis: ").split()))
+y = list(map(int, input("Enter values on Y-axis: ").split()))
+m = input("Enter lable on X-axis: ")
+n = input("Enter lable on Y-axis: ")
+plt.plot(x,y)
+plt.title('Result')
+plt.xlabel(m)
+plt.ylabel(n)
+plt.show()
