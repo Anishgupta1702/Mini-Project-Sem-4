@@ -1,0 +1,11 @@
+from matplotlib import pyplot as plt
+z = input("Enter title for the graph: ")
+m = input("Enter lable on X-axis: ")
+n = input("Enter lable on Y-axis: ")
+x = input("Enter values on X-axis: ").split()
+y = list(map(int, input("Enter values on Y-axis: ").split()))
+plt.bar(x,y,color = 'cyan')    
+plt.title(z)
+plt.xlabel(m)
+plt.ylabel(n)
+plt.show()
