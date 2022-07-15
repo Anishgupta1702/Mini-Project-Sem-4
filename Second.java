@@ -48,31 +48,31 @@ public class Second extends JPanel {
 		button1.setBounds(10, 11, 70, 23);
 		add(button1);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		comboBox.setEditable(true);
-		comboBox.setBounds(224, 96, 171, 23);
-		add(comboBox);
-		comboBox.addItem("Population");
-		comboBox.addItem("population growth rate");
-		comboBox.addItem("birthrate");
-		comboBox.addItem("deathrate");
-		comboBox.addItem("life expectancy");
-		comboBox.addItem("infant mortality rate");
-		comboBox.addItem("fertility rate");
-		comboBox.addItem("Literacy rate");
-		comboBox.addItem("GDP");
-		comboBox.addItem("GDP growthrate");
+		JComboBox comboBox1 = new JComboBox();
+		comboBox1.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		comboBox1.setEditable(true);
+		comboBox1.setBounds(224, 96, 171, 23);
+		add(comboBox1);
+		comboBox1.addItem("Population");
+		comboBox1.addItem("population growth rate");
+		comboBox1.addItem("birthrate");
+		comboBox1.addItem("deathrate");
+		comboBox1.addItem("life expectancy");
+		comboBox1.addItem("infant mortality rate");
+		comboBox1.addItem("fertility rate");
+		comboBox1.addItem("Literacy rate");
+		comboBox1.addItem("GDP");
+		comboBox1.addItem("GDP growthrate");
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		comboBox_1.setEditable(true);
-		comboBox_1.setBounds(224, 155, 171, 22);
-		add(comboBox_1);
-		comboBox_1.addItem("line");
-		comboBox_1.addItem("bar");
-		comboBox_1.addItem("multiple line");
-		comboBox_1.addItem("multiple bar");
+		JComboBox comboBox2 = new JComboBox();
+		comboBox2.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		comboBox2.setEditable(true);
+		comboBox2.setBounds(224, 155, 171, 22);
+		add(comboBox2);
+		comboBox2.addItem("line");
+		comboBox2.addItem("bar");
+		comboBox2.addItem("multiple line");
+		comboBox2.addItem("multiple bar");
 		
 		JButton button2 = new JButton("OK");
 		button1.addActionListener(new ActionListener() {
