@@ -8,6 +8,8 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.python.util.PythonInterpreter;
+
 //import test.First;
 //import test.MainFrame;
 
