@@ -34,13 +34,13 @@ public class Second extends JPanel {
 		button1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == button1) {
-	                MainFrame.main_panel.invalidate();
-	                MainFrame.main_panel.removeAll();
-	                First frame1 = new First();
-	                MainFrame.main_panel.add(frame1);
-	                MainFrame.main_panel.revalidate();
-	                MainFrame.main_panel.repaint();
-	            }
+	                		MainFrame.main_panel.invalidate();
+	              			MainFrame.main_panel.removeAll();
+	                		First frame1 = new First();
+	                		MainFrame.main_panel.add(frame1);
+	                		MainFrame.main_panel.revalidate();
+	                		MainFrame.main_panel.repaint();
+	            		}
 			}
 		});
 		button1.setBounds(10, 11, 70, 23);
@@ -75,7 +75,24 @@ public class Second extends JPanel {
 		JButton button2 = new JButton("OK");
 		button1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==button2){
 				
+				//String field = comboBox1.getItemAt(comboBox1.getSelectedIndex()).toString();
+			    	//Process process;
+			     
+			    	try {
+			    		PythonInterpreter.initialize(System.getProperties(), System.getProperties(), new String[0]);
+		            		PythonInterpreter interp = new PythonInterpreter();
+		            		interp.execfile("");
+			    		//process = Runtime.getRuntime().exec("");
+					//BufferedReader stdInput = new BufferedReader(new InputStreamReader(process.getInputStream()));
+				    	//BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+						//mProcess = process;
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				}
 			}
 		});
 		button2.setBounds(198, 212, 52, 23);
