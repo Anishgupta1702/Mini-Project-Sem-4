@@ -3,10 +3,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JTextField;
-import java.awt.Component;
-import javax.swing.Box;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 
@@ -15,10 +14,12 @@ public class UserInput extends JPanel {
 	private JTextField textField2;
 	private JTextField textField3;
 	private JTextField textField4;
-	private JLabel lblNewLabel_3;
-	private JComboBox comboBox;
-	private JButton btnNewButton1;
+	private JLabel label5;
+	private JComboBox<String> comboBox;
+	private JButton button1;
 	private JButton btnNewButton2;
+	
+	protected String graph;
 
 	/**
 	 * Create the panel.
@@ -26,6 +27,7 @@ public class UserInput extends JPanel {
 	public UserInput() {
 		
 		setLayout(null);
+		setSize(530,400);
 		
 		JLabel lblNewLabel1 = new JLabel("Enter the values on x-axis:");
 		lblNewLabel1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
@@ -67,24 +69,47 @@ public class UserInput extends JPanel {
 		add(textField4);
 		textField4.setColumns(10);
 		
-		lblNewLabel_3 = new JLabel("Choose the graph:");
-		lblNewLabel_3.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		lblNewLabel_3.setBounds(80, 200, 207, 24);
-		add(lblNewLabel_3);
+		label5 = new JLabel("Choose the graph:");
+		label5.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label5.setBounds(80, 200, 207, 24);
+		add(label5);
 		
-		comboBox = new JComboBox();
+		comboBox = new JComboBox<String>();
 		comboBox.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		comboBox.setEditable(true);
 		comboBox.setBounds(320, 202, 100, 22);
 		add(comboBox);
 		comboBox.addItem("line");
 		comboBox.addItem("bar");
-		comboBox.addItem("multiple line");
-		comboBox.addItem("multiple bar");
-		
-		btnNewButton1 = new JButton("OK");
-		btnNewButton1.setBounds(240, 260, 52, 23);
-		add(btnNewButton1);
+		comboBox.addItem("pie");
+
+		button1 = new JButton("OK");
+		button1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String python = "C:\\Miniconda3\\python.exe";
+			
+				if(comboBox.getSelectedItem() == "line") 
+					graph = "C:\\Miniproject\\userline.py";
+				else if(comboBox.getSelectedItem() == "bar") 
+					graph = "C:\\Miniproject\\userbar.py";
+				else if(comboBox.getSelectedItem() == "pie")
+					graph = "C:\\Miniproject\\pie.py";
+				
+				try {
+					Process process = Runtime.getRuntime().exec(python+" "+graph+" "+textField1.getText()+" "+textField2.getText());
+					int result = process.waitFor();
+					
+				} catch (IOException | InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			
+		});
+		button1.setBounds(240, 260, 52, 23);
+		add(button1);
 		
 		btnNewButton2 = new JButton("Back");
 		btnNewButton2.addActionListener(new ActionListener() {
