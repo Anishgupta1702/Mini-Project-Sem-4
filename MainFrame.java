@@ -13,7 +13,6 @@ import java.io.InputStreamReader;
 public class MainFrame extends JFrame {
 	
 	 static JPanel main_panel;
-
 	/**
 	 * Launch the application.
 	 */
@@ -54,4 +53,5 @@ public class MainFrame extends JFrame {
 	        main_panel.add(second, "two");
 	        
 	}
+
 }
