@@ -9,9 +9,6 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 public class Second extends JPanel {
 
 	Process process;
@@ -21,21 +18,21 @@ public class Second extends JPanel {
 	 */
 	public Second() {
 		
-		setSize(530,400);
-		
+		setSize(600,400);
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Choose the field:");
+		lblNewLabel.setBounds(116, 98, 135, 24);
 		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		lblNewLabel.setBounds(105, 94, 135, 23);
 		add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Choose the graph:");
+		lblNewLabel_1.setBounds(116, 156, 142, 23);
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(105, 152, 142, 23);
 		add(lblNewLabel_1);
 		
 		JButton button1 = new JButton("Back");
+		button1.setBounds(10, 11, 70, 23);
 		button1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == button1) {
@@ -48,13 +45,12 @@ public class Second extends JPanel {
 	            }
 			}
 		});
-		button1.setBounds(10, 11, 70, 23);
 		add(button1);
 		
 		JComboBox<String> comboBox1 = new JComboBox<String>();
+		comboBox1.setBounds(283, 99, 200, 24);
 		comboBox1.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		comboBox1.setEditable(true);
-		comboBox1.setBounds(250, 95, 171, 23);
 		add(comboBox1);
 		comboBox1.addItem("population");
 		comboBox1.addItem("population growth rate");
@@ -68,21 +64,28 @@ public class Second extends JPanel {
 		comboBox1.addItem("GDP growthrate");
 		
 		JComboBox<String> comboBox2 = new JComboBox<String>();
+		comboBox2.setBounds(283, 157, 200, 23);
 		comboBox2.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		comboBox2.setEditable(true);
-		comboBox2.setBounds(250, 153, 171, 22);
 		add(comboBox2);
 		comboBox2.addItem("line");
 		comboBox2.addItem("bar");
 		
 		JButton button2 = new JButton("OK");
+		button2.setBounds(270, 225, 52, 23);
 		button2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==button2){
+			     
+			    /*	ProcessBuilder pb = new ProcessBuilder("C:\\Miniconda3\\python.exe","C:\\Miniproject\\dataline.py","C:\\Data\\population.xlsx");
+		            Process p = pb.start();
+		            BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		            //System.out.println(p.getOutputStream());
+			    	*/
 					
 					try {
 						
-						Files.deleteIfExists(Paths.get("C:\\plot\\myplot.png"));
+						//Files.deleteIfExists(Paths.get("C:\\plot\\myplot.png"));
 						String python = "C:\\Miniconda3\\python.exe";
 						
 						if(comboBox2.getSelectedItem() == "line") 
@@ -124,14 +127,24 @@ public class Second extends JPanel {
 								process = Runtime.getRuntime().exec(new String[]{python,graph,"C:\\Data\\gdpgrowthrate.xlsx"});
 							}
 							process.waitFor();
+						
+						/*MainFrame.main_panel.removeAll();
+						MainFrame.main_panel.invalidate();
+						//TimeUnit.SECONDS.sleep(5);
+						
+						int iCount = MainFrame.main_panel.getComponentCount();
+		                DisplayGraph frameDisplay = new DisplayGraph();
+		                
+		                MainFrame.main_panel.add(frameDisplay);
+		                MainFrame.main_panel.revalidate();
+		                MainFrame.main_panel.repaint(); */
 
 					} catch (Exception e1) {
-			            		e1.printStackTrace();
+			            e1.printStackTrace();
 			        } 
 				} 	  
 			}
 		});
-		button2.setBounds(240, 220, 52, 23);
 		add(button2);
 		
 	}
